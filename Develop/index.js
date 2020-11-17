@@ -116,7 +116,6 @@ const questions = [
         choices: ['MIT', 'GNU', 'ISC', 'Mozilla Public License', 'GPL', 'Affero GPL', 'Apache'],
     },
 
-
 ];
 
 // function to write README file
