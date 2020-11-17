@@ -41,13 +41,13 @@ const questions = [
     {
         type: 'input',
         name: 'install',
-        message: 'Enter installation instruction',
+        message: "Enter installation instructions, if none type 'none'",
         //to validate answer
         validate: installInput => {
             if (installInput) {
                 return true;
             } else {
-                console.log("Please type instructions for installation");
+                console.log("Please type instructions for installation, if none type 'none'");
                 return false;
             }
         }
@@ -62,7 +62,7 @@ const questions = [
             if (usageInput) {
                 return true;
             } else {
-                console.log("Please type how to use the application");
+                console.log("Please type how to use the application, if no instructions type 'none'");
                 return false;
             }
         }
@@ -71,13 +71,13 @@ const questions = [
     {
         type: 'input',
         name: 'guidelines',
-        message: "Please type guidelines for contribution",
+        message: "Please type guidelines for contribution, if none type 'none'",
     },
     // enter 6th question regarding test instructions
     {
         type: 'input',
         name: 'test',
-        message: "Please enter instructions for testing",
+        message: "Please enter instructions for testing, if none type 'none'",
     },
 
     //enter 7th question regarding github username
@@ -120,7 +120,12 @@ const questions = [
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) throw err;
+        console.log(" Your ReadMe has been created!");
+    });
+}
 
 // function to initialize program
 function init() {
